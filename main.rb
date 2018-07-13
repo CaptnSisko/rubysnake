@@ -112,7 +112,7 @@ class SnakeGame < Gosu::Window
 				@max_apples = 50
 				@max_gold_apples = 20
 				@screen = 1
-				@initial_length = 50
+				@initial_length = 65
 				@move_period = 4
 				@greenSnake = Snake.new(1, 1, @initial_length, GREEN)
 				@blueSnake = Snake.new(78, 48, @initial_length, BLUE)
@@ -165,6 +165,9 @@ class SnakeGame < Gosu::Window
 			@greenSnake.draw
 			@blueSnake.draw if @multiplayer
 			@apples.each do |apple|
+				apple.draw
+			end
+			@goldApples.each do |apple|
 				apple.draw
 			end
 			@loss.draw(@winner, @greenSnake.blocks.length.to_s, @blueSnake.blocks.length.to_s, @multiplayer)
