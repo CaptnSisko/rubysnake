@@ -76,10 +76,8 @@ class Snake
       return true if @blocks[i] == blocks[0]
       i -= 1
     end
-    @blocks.each do |block|
-      death_blocks.each do |death_block|
-        return true if block == death_block
-      end
+    death_blocks.each do |death_block|
+      return true if @blocks[0] == death_block
     end
     return false
   end
