@@ -110,9 +110,9 @@ class SnakeGame < Gosu::Window
 			end
 			@score_font.draw("Green length: " + @greenSnake.blocks.length.to_s, 15, 15, 0)
 			@score_font.draw("Blue length: " + @blueSnake.blocks.length.to_s, 1050, 700, 0)
-			if (@greenSnake.is_dead? (@blueSnake.blocks) and @blueSnake.is_dead? (@greenSnake.blocks))
+			if @greenSnake.is_dead? (@blueSnake.blocks) and @blueSnake.is_dead? (@greenSnake.blocks)
 				@sleepTime = 0
-				@winner = "Nobody"
+				@winner = "nobody"
 				@screen = 2
 		    END_MUSIC.play(true)
 			elsif @greenSnake.is_dead? (@blueSnake.blocks)
