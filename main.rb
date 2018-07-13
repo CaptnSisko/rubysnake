@@ -98,7 +98,7 @@ class SnakeGame < Gosu::Window
 				@initial_length = 10
 				@move_period = 8
 				@greenSnake = Snake.new(1, 1, @initial_length, GREEN)
-			elsif id == Gosu::KbP
+			elsif id == Gosu::KbM
 				@multiplayer = true
 				@max_apples = 4
 				@max_gold_apples = 1

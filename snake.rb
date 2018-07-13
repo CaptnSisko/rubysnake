@@ -14,22 +14,27 @@ class Snake
   end
 
   def turn_up
-    @direction = 1 if @direction != 3
+    @direction = 1 if not @turning and @direction != 3
+    @turning = true
   end
 
   def turn_right
-    @direction = 2 if @direction != 4
+    @direction = 2 if not @turning and @direction != 4
+    @turning = true
   end
 
   def turn_down
-    @direction = 3 if @direction != 1
+    @direction = 3 if not @turning and @direction != 1
+    @turning = true
   end
 
   def turn_left
-    @direction = 4 if @direction != 2
+    @direction = 4 if not @turning and @direction != 2
+    @turning = true
   end
 
   def move #blocks[0] is the head
+    @turning = false
     @invincible = false if @direction != 0
     i = @blocks.length - 1
     while i > 0
@@ -71,8 +76,10 @@ class Snake
       return true if @blocks[i] == blocks[0]
       i -= 1
     end
-    death_blocks.each do |death_block|
-      return true if @blocks[0] == death_block
+    @blocks.each do |block|
+      death_blocks.each do |death_block|
+        return true if block == death_block
+      end
     end
     return false
   end
